@@ -2,38 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Characters - My Fandom Hub</title>
+  <title>Characters - Foxhole Lovers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>Characters</h1>
+  <h1>Foxhole Lovers</h1>
+  <p>Characters & Lore</p>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="characters.html">Characters</a>
     <a href="about.html">About</a>
+    <a href="wedding-story.html">Wedding Story</a>
   </nav>
 </header>
 
 <main>
 
-<div class="card">
-  <h2>Character Name</h2>
-  <p>Main hero of the story.</p>
-</div>
+<section class="post">
+  <h2>Character Index</h2>
+  <p class="meta">
+    Profiles from the 420st and the places that shaped them.
+  </p>
 
-<div class="card">
-  <h2>Another Character</h2>
-  <p>Mysterious and powerful.</p>
-</div>
+  <input id="search" class="search" type="text" placeholder="Search characters (name, role, tags)…">
+</section>
+
+<section id="characterGrid" class="grid">
+
+  <!-- Suiv -->
+  <article class="char-card" data-tags="suiv colonial 420st infantry logistics factory production frontline">
+    <h3>Suiv</h3>
+
+    <p class="chip-row">
+      <span class="chip">Colonial</span>
+      <span class="chip">420st</span>
+      <span class="chip">Factory</span>
+      <span class="chip">Logistics</span>
+      <span class="chip">Infantry</span>
+    </p>
+
+    <p><strong>Role:</strong> Factory runner / Logistics support / Frontline infantry</p>
+
+    <p><strong>Known for:</strong>
+      Keeping production moving while still showing up to fight when the line needs bodies.
+    </p>
+
+    <p class="quote">“If I die, I’ll find my way back to you.”</p>
+
+    <p>
+      <a class="button" href="suiv.html">Full Profile →</a>
+    </p>
+  </article>
+
+  <!-- Oops All Beans -->
+  <article class="char-card" data-tags="oops all beans colonial 420st logistics infantry scrap refinery truck frontline support">
+    <h3>Oops All Beans</h3>
+
+    <p class="chip-row">
+      <span class="chip">Colonial</span>
+      <span class="chip">420st</span>
+      <span class="chip">Logistics</span>
+      <span class="chip">Infantry</span>
+    </p>
+
+    <p><strong>Role:</strong> Logistics runner / Emergency frontline support</p>
+
+    <p><strong>Known for:</strong>
+      Running supplies nonstop, then grabbing a rifle when things start collapsing.
+    </p>
+
+    <p class="quote">“If I die, loot my body and keep fighting.”</p>
+
+    <p>
+      <a class="button" href="beans.html">Full Profile →</a>
+    </p>
+  </article>
+
+  <!-- Ash Fields (Location “Character”) -->
+  <article class="char-card" data-tags="ash fields location battleground wedding lore colonial warden">
+    <h3>Ash Fields</h3>
+
+    <p class="chip-row">
+      <span class="chip">Battleground</span>
+      <span class="chip">Lore</span>
+      <span class="chip">Symbol</span>
+    </p>
+
+    <p><strong>Role:</strong> The place that remembers.</p>
+
+    <p><strong>Known for:</strong>
+      Quiet moments between shelling—and the wedding no war could erase.
+    </p>
+
+    <p class="quote">“Ash Fields remembered.”</p>
+  </article>
+
+</section>
+
+<p id="noResults" class="meta" style="display:none; text-align:center; margin-top:18px;">
+  No matches. Try a different search.
+</p>
 
 </main>
 
 <footer>
-  <p>Fandom Forever ✨</p>
+  <p>© 2026 Foxhole Lovers</p>
 </footer>
+
+<script>
+  const search = document.getElementById("search");
+  const cards = Array.from(document.querySelectorAll(".char-card"));
+  const noResults = document.getElementById("noResults");
+
+  search.addEventListener("input", () => {
+    const q = search.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const text = (card.innerText + " " + (card.dataset.tags || "")).toLowerCase();
+      const show = text.includes(q);
+      card.style.display = show ? "" : "none";
+      if (show) visible++;
+    });
+
+    noResults.style.display = visible === 0 ? "" : "none";
+  });
+</script>
 
 </body>
 </html>

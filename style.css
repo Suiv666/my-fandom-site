@@ -184,3 +184,65 @@ nav a:hover {
   background: rgba(59, 130, 246, 0.18);
   color: #fff;
 }
+/* ---------- Characters Page ---------- */
+
+.search {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  background: rgba(15, 23, 42, 0.65);
+  color: #e5e7eb;
+  outline: none;
+}
+
+.search::placeholder {
+  color: rgba(229, 231, 235, 0.55);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.char-card {
+  background: rgba(2, 6, 23, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+}
+
+.char-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  background: rgba(15, 23, 42, 0.55);
+  color: #e5e7eb;
+}
+
+.quote {
+  margin-top: 12px;
+  padding: 12px;
+  border-left: 4px solid rgba(96, 165, 250, 0.7);
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 10px;
+  color: #f3f4f6;
+  font-style: italic;
+}
